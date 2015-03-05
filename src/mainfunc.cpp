@@ -11,6 +11,8 @@
 //HID keycodes and functions
 #include "hidkeys.h"
 
+//function prototypes
+
 //this code occurs at the beginning of every code
 #define IR_PRE 0x7FF00000
 
@@ -48,6 +50,17 @@ KeyCode prevKey;
 volatile unsigned long firstPulseTime;
 volatile unsigned long lastPulseTime;
 volatile unsigned long numPulses;
+
+void HIDSend(KeyCode *kcode);
+void isr();
+void pollPwrState();
+void finishPollPwrState();
+void pollPwrButton();
+void pollIR();
+void powerAction();
+void unpressPwrButton();
+void setup();
+void loop();
 
 
 void HIDSend(KeyCode *kcode)
